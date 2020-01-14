@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>COMP1073 Client-Side JavaScript</title>
+    <link rel="stylesheet" href="guess.css" />
+  </head>
+
+  <body>
+    <h1>Number Guessing Game</h1>
+    <p>I have picked a random number between 1 and 100. You have 10 chances to guess the number.</p>
+
+    <!-- Guessing form controls -->
+    <label for="guessField">Enter a guess: </label>
+    <input type="number" id="guessField">
+    <button>Submit guess</button>
+
+    <!-- Elements to contain feedback for user -->
+    <section>
+      <p id="guesses"></p>
+      <p id="lastResult"></p>
+      <p id="lowOrHi"></p>
+    </section>
+
+    <script>
+
+      var p= Math.floor(Math.random() * 100);
+    console.log(p);
+    // grabbed submit button and paragraph tag and input field
+    var submitBtn = document.querySelector('button')//for the button.
+    var lowOrHi = document.querySelector('#lowOrHi');//for the high and low 
+    var guess = document.querySelector('#guessField');// thsi is for thaking the guesses as input.
+
+    function decideIfWon() {
+      // if guess is too low, then display "Too low , try again "
+      if
+       (guess.value < p)
+        {
+          lowOrHi.textContent = "Too low";
+        }
+       else if (guess.value > p)
+        {
+          // if guess is too high then display "Too high,try again "
+         lowOrHi.textContent = "Too high"
+        } 
+      else
+        {
+
+         // guess is correct, so display "Winner winner"
+         lowOrHi.textContent = "Winner winner"
+
+        }
+    }
+    submitBtn.addEventListener('click', decideIfWon)// for the submition of the button.
+
+    </script>
+  </body>
+</html>
